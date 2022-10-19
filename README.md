@@ -218,7 +218,7 @@ Run the main application module (`avt-mon-med-exp.py`) from the `avtMonMedExp` p
 
 #### 3.6.1 A fragment of the output of the application results to the Console(Terminal)
 
-
+`
 ---------------------------------------------------------------------
  The avtMonMedExp app began to search and analyze experts on Twitter ...
  -----------------------------------------------------------------------
