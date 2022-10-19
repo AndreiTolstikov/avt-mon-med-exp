@@ -199,8 +199,14 @@ def tw_expert_location_geocoding(self, tw_user_location):
     # ...
 ```
 
+#### 3.4.5 How to use Amazon Comprehend Medical operations using the Python
+
+[Detecting medical entities using the AWS SDK for Python (Boto3)](https://docs.aws.amazon.com/comprehend-medical/latest/dev/gettingstarted-api.html#med-examples-python)
+
+
 ### 3.5 Run the `avtMonMedExp` application
 
+```python
 # avt-mon-med-exp/avt_mon_med_exp/avt-mon-med-exp.py
 
 Run the main application module (`avt-mon-med-exp.py`) from the `avtMonMedExp` package work folder with the following console command:
