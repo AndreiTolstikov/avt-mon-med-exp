@@ -218,8 +218,8 @@ Run the main application module (`avt-mon-med-exp.py`) from the `avtMonMedExp` p
 
 #### 3.6.1 A fragment of the output of the application results to the Console(Terminal)
 
-```
- ---------------------------------------------------------------------
+
+---------------------------------------------------------------------
  The avtMonMedExp app began to search and analyze experts on Twitter ...
  -----------------------------------------------------------------------
 
@@ -346,7 +346,9 @@ Result of using the DetectEntitiesV2 operation for <tw_user_description> analysi
 Entity {'Id': 1, 'BeginOffset': 33, 'EndOffset': 37, 'Score': 0.8024508953094482, 'Text': 'ADHD', 'Category': 'MEDICAL_CONDITION', 'Type': 'DX_NAME', 'Traits': []}
 
  ---
+
 Press any key to continue . . . 
+
  ---
 @TheMadDruid17 is expert No.2 base on avtMonMedExp and Amazon Comprehend Medical (DetectEntitiesV2 operation) analysis
 
@@ -356,15 +358,10 @@ Press any key to continue . . .
 ...
  ---
 Timestamp (UTC):  2022-Oct-19 21:29:30
-
  ---------------------------------------------------------------------
  The avtMonMedExp app successfully completed.
   ---------------------------------------------------------------------
  Elapsed time:  01:01:03
  ---------------------------------------------------------------------
 
-
-
-
-```
 
