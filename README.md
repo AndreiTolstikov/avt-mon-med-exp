@@ -1,4 +1,4 @@
-# avtMonExp project on Python 3
+# avtMonMedExp project on Python 3
 
 
 ## 1. Introduction
@@ -46,7 +46,7 @@ The `avtMonMedExp` project includes the following main stages in data processing
 ##### 3.4.1.1 Format of the `domains_data.json` file
 
 ```javascript
-// avtMonExp/avtMonExp/domains_data.json
+// avt-mon-med-exp/avt_mon_med_exp/domains_data.json
 
 {
   "domains": [
@@ -114,43 +114,40 @@ The `avtMonMedExp` project includes the following main stages in data processing
 }
 ```
 
-##### 3.4.1.2 Example of the `domains_data.json` file for `Wireless_Communications` domain
+##### 3.4.1.2 Example of the `domains_data.json` file for `Medical` domain
 
 ```javascript
-// avtMonExp/avtMonExp/domains_data.json
+// avt-mon-med-exp/avt_mon_med_exp/domains_data.json
 
 {
   "domains": [
     {
-      "domain":"Wireless_Communications",
+      "domain":"Medical",
+
       "tags":{
-        "Wireless":5,
-        "Infrared":3,
-        "Bluetooth":4,
-        "Wi-Fi":4,
-        "ZigBee":4,
-        "Cellural":5,
-        "Mobile":5,
-        "Satellite":4
+        "MentalHealth":5,
+        "PTSD":5
        },
+
       "phrases":{
-        "Wireless Networking":4,
-        "Wireless Communication Networks":5,
-        "Wireless Communication Systems":5
+        "Mental Health":5,
+        "Mental Disorders":5,
+        "Disaster Mental Health":5,
+        "Disaster Research":5,
+        "Potentially traumatic event":5,
+        "Posttraumatic stress disorder":5
       },
+
       "expert_keywords":{
-        "Expert":5,
-        "Leader":4,
-        "Engineer":4,
-        "CEO":5,
-        "CTO":5,
-        "PhD":4,
-        "Magazine":3,
-        "Journalist":4,
-        "Reviewer":4,
-        "Analyst":5,
-        "Blogger":5,
-        "Reseacher":5
+        "MD":5,
+        "Reseacher":5,
+        "PhD":5,
+        "Professor":5,
+        "Writer":5,
+        "Journalist":5,
+        "Psychologist":5,
+        "Psychotherapist":5,
+        "Psychiatrist":5
       }
     }
   ]
@@ -160,14 +157,15 @@ The `avtMonMedExp` project includes the following main stages in data processing
 #### 3.4.2 To interact with MySQL database
 
 ```python
-# avtMonExp/avtMonExp/mysql_monexp_db_config.py
+# avt-mon-med-exp/avt_mon_med_exp/mysql_monexp_db_config.py
+
 
 # create dictionary to hold connection info to <monexp_db> database
 monexp_db_config = {
     'user': '<your-user>',
     'password': '<your-password>',
     'host': '127.0.0.1',
-    'charset': 'utf8mb4'
+    'raise_on_warnings': True
 }
 ```
 
@@ -175,7 +173,7 @@ monexp_db_config = {
 #### 3.4.3 To interact with your Twitter account with TwitterSearch Library need create Twitter App, and getting your application tokens
 
 ```python
-# avtMonExp/avtMonExp/tw_search_experts.py
+# avt-mon-med-exp/avt_mon_med_exp/tw_search_experts.py
 
 def init_tw_search_lib(self, domain_keyword):
 #...
@@ -190,38 +188,43 @@ def init_tw_search_lib(self, domain_keyword):
 # ...
 ```
 
-#### 3.4.4 To use python-gmaps Package for getting the latitude and longitude of the expert's location from the <tw_location> field in <monexp_db> database
+#### 3.4.4 To use Python Geocoder Package for getting the latitude and longitude of the expert's location from the <tw_location> field in <monexp_db> database
 
 ```python
-# avtMonExp/avtMonExp/tw_search_experts.py
+# avt-mon-med-exp/avt_mon_med_exp/tw_search_experts.py
 
 def tw_expert_location_geocoding(self, tw_user_location):
     # ...
-        gmaps_request = Geocoding(api_key='<your-api_key>')
+        g = geocoder.bing(tw_user_location, key='<your-api_key>')
     # ...
 ```
 
-### 3.5 Run the `avtMonExp` application
+### 3.5 Run the `avtMonMedExp` application
 
-Run the main application module (`avtmonexp.py`) from the `avtMonExp` package with the following console command:
+# avt-mon-med-exp/avt_mon_med_exp/avt-mon-med-exp.py
 
-`$ python avtmonexp.py`
+Run the main application module (`avt-mon-med-exp.py`) from the `avtMonMedExp` package work folder with the following console command:
+
+`$ avt-mon-med-exp.py`
 
 
-### 3.6 Example of the results of the first launch of the `avtMonExp` application
+### 3.6 Example of the results of the first launch of the `avtMonMedExp` application
 
-#### 3.6.1 A fragment of the output of the application results to the console
+#### 3.6.1 A fragment of the output of the application results to the Console(Terminal)
 
 ```
  ---------------------------------------------------------------------
- The avtMonExp app began to search and analyze experts on Twitter ...
- ---------------------------------------------------------------------
+ The avtMonMedExp app began to search and analyze experts on Twitter ...
+ -----------------------------------------------------------------------
 
  ---
- Timestamp (UTC):  2018-Apr-03 14:05:04
+ Timestamp (UTC):  2022-Oct-19 20:28:27
 
  ---
  Prepare data from <domains_data.json> file...
+
+ ---
+ Drop <monexp_db> database...
 
  ---
  Create <monexp_db> database...
@@ -233,145 +236,129 @@ Run the main application module (`avtmonexp.py`) from the `avtMonExp` package wi
  Search and analysis experts from Twitter users...
 
  ---
- Current processing domain:  Wireless_Communications
+ Current processing domain:  Medical
 
  Queries done: 1. Tweets received: 100
 
- Queries done: 2. Tweets received: 200
-
- Queries done: 3. Tweets received: 300
-
- Queries done: 4. Tweets received: 400
-
- Queries done: 5. Tweets received: 500
-
-  ---
- Current time(UTC): 14:05:26
- Elapsed time:  00:00:22
+ ---
+@AARPIntl is Twitter user No.1 was finded base on avtMonMedExp analysis
 
  ---
- Now the avtMonExp app is suspended for 60 seconds to avoid rate-limitation by Twitter...
+@sober_colin is Twitter user No.2 was finded base on avtMonMedExp analysis
 
  ---
- Resume processing and analysis...
-
- Queries done: 6. Tweets received: 600
-
- Queries done: 7. Tweets received: 700
-
- Queries done: 8. Tweets received: 800
-
- Queries done: 9. Tweets received: 900
-
- Queries done: 10. Tweets received: 1000
+@winstonprep is Twitter user No.3 was finded base on avtMonMedExp analysis
 
  ---
- Current time(UTC):  14:06:33
- Elapsed time:  00:01:29
+@ORF_CNED is Twitter user No.4 was finded base on avtMonMedExp analysis
 
  ---
- Now the avtMonExp app is suspended for 60 seconds to avoid rate-limitation by Twitter...
-
-  ---
- Resume processing and analysis...
-
- Queries done: 11. Tweets received: 1100
-
- Queries done: 12. Tweets received: 1200
-
- Queries done: 13. Tweets received: 1300
-
- Queries done: 14. Tweets received: 1400
-
- Queries done: 15. Tweets received: 1500
+@abaipl is Twitter user No.5 was finded base on avtMonMedExp analysis
 
  ---
- Current time(UTC):  14:07:41
- Elapsed time:  00:02:37
+@YouBuyWeFly2 is Twitter user No.6 was finded base on avtMonMedExp analysis
 
  ---
- Now the avtMonExp app is suspended for 60 seconds to avoid rate-limitation by Twitter...
- ...
- ...
- ...
- ---
- Resume processing and analysis...
-
- Queries done: 46. Tweets received: 4600
-
- Queries done: 47. Tweets received: 4700
-
- Queries done: 48. Tweets received: 4800
-
- Queries done: 49. Tweets received: 4900
-
- Queries done: 50. Tweets received: 5000
+@NamraRiaz10 is Twitter user No.7 was finded base on avtMonMedExp analysis
 
  ---
- Current time(UTC):  14:53:40
- Elapsed time:  00:48:35
+@Anjali_711 is Twitter user No.8 was finded base on avtMonMedExp analysis
 
  ---
- Now the avtMonExp app is suspended for 60 seconds to avoid rate-limitation by Twitter...
- ...
- ...
- ...
-  ---
- Resume processing and analysis...
-
- Queries done: 91. Tweets received: 9100
-
- Queries done: 92. Tweets received: 9200
-
- Queries done: 93. Tweets received: 9300
-
- Queries done: 94. Tweets received: 9400
-
- Queries done: 95. Tweets received: 9500
+@nancycoleITV is Twitter user No.9 was finded base on avtMonMedExp analysis
 
  ---
- Current time(UTC):  15:03:51
- Elapsed time:  00:58:47
+@lecondoliak is Twitter user No.10 was finded base on avtMonMedExp analysis
 
  ---
- Now the avtMonExp app is suspended for 60 seconds to avoid rate-limitation by Twitter...
-  ---
- Resume processing and analysis...
- ...
- ...
- ...
-  ---
- Generate HTML and display experts for each domain on Google Maps in default browser...
+@MissPaulaGreen is Twitter user No.11 was finded base on avtMonMedExp analysis
 
  ---
- Copy exists <Wireless_Communications_experts.html> file to <Wireless_Communications_experts.bak> file...
+@L18SUM is Twitter user No.12 was finded base on avtMonMedExp analysis
 
  ---
- New <Wireless_Communications_experts.html> file was successfully generated...
+@McBrideEngage is Twitter user No.13 was finded base on avtMonMedExp analysis
 
  ---
- Open new <Wireless_Communications_experts.html> file in default browser...
+@GeroNews is Twitter user No.14 was finded base on avtMonMedExp analysis
 
  ---
- Timestamp (UTC):  2018-Apr-03 15:06:08
+@kathrobbo3 is Twitter user No.15 was finded base on avtMonMedExp analysis
+
+ ---
+@MrKSDyck is Twitter user No.16 was finded base on avtMonMedExp analysis
+
+ ---
+@PhilZimbardo is Twitter user No.17 was finded base on avtMonMedExp analysis
+
+ ---
+@noshootings is Twitter user No.18 was finded base on avtMonMedExp analysis
+
+ ---
+@StayUpMS is Twitter user No.19 was finded base on avtMonMedExp analysis
+...
+---
+@natasha_tracy is Twitter user No.88 was finded base on avtMonMedExp analysis
+
+ ----------------------------------------------------------
+@natasha_tracy expert description: I'm an award-winning mental health writer, acclaimed speaker, host, and author of Lost Marbles: Insights into My Life with Depression and Bipolar.
+
+ -------------------------------------------------------------------------------
+Result of using the DetectEntitiesV2 operation for <tw_user_description> analysis
+
+ -------------------------------------------------------------------------------
+Entity {'Id': 1, 'BeginOffset': 7, 'EndOffset': 41, 'Score': 0.4531750977039337, 'Text': 'award-winning mental health writer', 'Category': 'PROTECTED_HEALTH_INFORMATION', 'Type': 'PROFESSION', 'Traits': []}
+
+ ---
+Press any key to continue . . .
+
+
+ ---
+@natasha_tracy is expert No.1 base on avtMonMedExp and Amazon Comprehend Medical (DetectEntitiesV2 operation) analysis
+
+ ---
+Press any key to continue . . . 
+
+@hephaistos_ai is Twitter user No.110 was finded base on avtMonMedExp analysis
+
+ ---
+@TinaMarie_80s is Twitter user No.111 was finded base on avtMonMedExp analysis
+
+ ---
+@imhrAZ is Twitter user No.112 was finded base on avtMonMedExp analysis
+
+ ---
+@TheMadDruid17 is Twitter user No.113 was finded base on avtMonMedExp analysis
+
+ ----------------------------------------------------------
+@TheMadDruid17 expert description: 18+ #Autistic #Trans #Nonbinary #ADHD #Tourettes #CPTSD. Im an #artist #pagan #tech #writer #gamer #twitchaffiliate #streamer #activist & #advocate.
+
+ -------------------------------------------------------------------------------
+Result of using the DetectEntitiesV2 operation for <tw_user_description> analysis
+
+ -------------------------------------------------------------------------------
+Entity {'Id': 1, 'BeginOffset': 33, 'EndOffset': 37, 'Score': 0.8024508953094482, 'Text': 'ADHD', 'Category': 'MEDICAL_CONDITION', 'Type': 'DX_NAME', 'Traits': []}
+
+ ---
+Press any key to continue . . . 
+ ---
+@TheMadDruid17 is expert No.2 base on avtMonMedExp and Amazon Comprehend Medical (DetectEntitiesV2 operation) analysis
+
+ ---
+Press any key to continue . . . 
+
+...
+ ---
+Timestamp (UTC):  2022-Oct-19 21:29:30
 
  ---------------------------------------------------------------------
- The avtMonExp app successfully completed.
+ The avtMonMedExp app successfully completed.
   ---------------------------------------------------------------------
  Elapsed time:  01:01:03
  ---------------------------------------------------------------------
+
+
+
+
 ```
 
-#### 3.6.2 Displaying experts for each domain on Google Maps in default browser
-
-Results of data processing for each domain are saved in the `experts_data_viz_html` project folder. The file name corresponds to the following pattern: `domain_experts.html`. 
-The `avtMonExp` app automatically opens this file in the default browser.
-
-For example, for the `Wireless_Communications` domain, the result is as follows:
-`avtMonExp/avtMonExp/experts_data_viz_html/Wireless_Communications_experts.html`
-
-**NOTE:** If the same file already exists in the `experts_data_viz_html` folder when creating a new `*.html` file, it is copied to a file with the `*.bak` extension, and the existing `*.html` file is overwritten with a new `*.html` file with the same name.
-
-Example of plotting expert data from the specified domain on Google Maps as heatmap in the default browser
-
-![Plotting expert data from the the `Wireless_Communications` domain on Google Maps as heatmap in the default browser](https://software.avt.dn.ua/wp-content/uploads/2018/04/avtsoft_avtMonExp_Wireless_Communications_experts_on_GMaps_800x576.png)
