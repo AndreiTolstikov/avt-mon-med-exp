@@ -1,0 +1,33 @@
+{
+  "domains": [
+    {
+      "domain":"Medical",
+
+      "tags":{
+        "MentalHealth":5,
+        "PTSD":5
+       },
+
+      "phrases":{
+        "Mental Health":5,
+        "Mental Disorders":5,
+        "Disaster Mental Health":5,
+        "Disaster Research":5,
+        "Potentially traumatic event":5,
+        "Posttraumatic stress disorder":5
+      },
+
+      "expert_keywords":{
+        "MD":5,
+        "Reseacher":5,
+        "PhD":5,
+        "Professor":5,
+        "Writer":5,
+        "Journalist":5,
+        "Psychologist":5,
+        "Psychotherapist":5,
+        "Psychiatrist":5
+      }
+    }
+  ]
+}
