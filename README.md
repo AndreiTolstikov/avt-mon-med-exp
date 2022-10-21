@@ -206,9 +206,11 @@ def tw_expert_location_geocoding(self, tw_user_location):
 
 ### 3.5 Run the `avtMonMedExp` application
 
+```python
 # avt-mon-med-exp/avt_mon_med_exp/avt_mon_med_exp.py
+```
 
-Run the main application module (`avt_mon_med_exp.py`) from the `avtMonMedExp` package work folder with the following console command:
+Run the main application module (`avt_mon_med_exp.py`) from the `avtMonMedExp` project work folder with the following console command:
 
 `$ avt_mon_med_exp.py`
 
