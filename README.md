@@ -206,19 +206,19 @@ def tw_expert_location_geocoding(self, tw_user_location):
 
 ### 3.5 Run the `avtMonMedExp` application
 
-```python
-# avt-mon-med-exp/avt_mon_med_exp/avt-mon-med-exp.py
+# avt-mon-med-exp/avt_mon_med_exp/avt_mon_med_exp.py
 
-Run the main application module (`avt-mon-med-exp.py`) from the `avtMonMedExp` package work folder with the following console command:
+Run the main application module (`avt_mon_med_exp.py`) from the `avtMonMedExp` package work folder with the following console command:
 
-`$ avt-mon-med-exp.py`
+`$ avt_mon_med_exp.py`
 
 
 ### 3.6 Example of the results of the first launch of the `avtMonMedExp` application
 
 #### 3.6.1 A fragment of the output of the application results to the Console(Terminal)
 
-`
+```
+
 ---------------------------------------------------------------------
  The avtMonMedExp app began to search and analyze experts on Twitter ...
  -----------------------------------------------------------------------
@@ -363,5 +363,5 @@ Timestamp (UTC):  2022-Oct-19 21:29:30
   ---------------------------------------------------------------------
  Elapsed time:  01:01:03
  ---------------------------------------------------------------------
-
+```
 
