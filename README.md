@@ -14,8 +14,8 @@ The `avtMonMedExp` project includes the following main stages in data processing
 2. Search, retrieve, and analysis data about experts in Medical domain from Twitter based on pre-defined criteria.
 
 3. Searching and analyzing experts from the field of medicine among Twitter users consists of two main stages:
-     2.1  On the **first stage of data analysis**, an algorithm developed by A.V.T. Software is used to identify a Twitter user as an expert in a Medical domain.
-     2.2 On the **second stage of data analysis**, we use Amazon Comprehend Medical DetectEntitiesV2 operation for analysis Twitter user data to identify specific medical entities. To more accurately understand whether the Twitter user whose data we are analyzing is an expert or a patient. 
+     * On the **first stage of data analysis**, an algorithm developed by A.V.T. Software is used to identify a Twitter user as an expert in a Medical domain.
+     * On the **second stage of data analysis**, we use Amazon Comprehend Medical DetectEntitiesV2 operation for analysis Twitter user data to identify specific medical entities. To more accurately understand whether the Twitter user whose data we are analyzing is an expert or a patient. 
 
 4. Saves data about found experts from Medical domain that corresponds to the specified criteria in the relational database for future analysis, and visualization.
 
