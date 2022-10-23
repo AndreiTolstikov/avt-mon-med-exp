@@ -190,7 +190,7 @@ def init_tw_search_lib(self, domain_keyword):
 
 #### 3.4.4 To use Python Geocoder Package for getting the latitude and longitude of the expert's location from the <tw_location> field in <monexp_db> database
 
-[Getting a Bing Maps Key](https://learn.microsoft.com/en-us/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key)
+[Getting a Bing Maps Key](https://learn.microsoft.com/en-us/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key) for using Geocoder geocoding library written in Python. 
 
 ```python
 # avt-mon-med-exp/avt_mon_med_exp/tw_search_experts.py
